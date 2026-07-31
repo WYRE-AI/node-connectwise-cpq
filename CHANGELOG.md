@@ -1,3 +1,16 @@
+# 1.0.0 (2026-07-31)
+
+
+### Bug Fixes
+
+* emit parenthesized list syntax for 'in' conditions ([47de390](https://github.com/wyre-technology/node-connectwise-cpq/commit/47de390dc25dcfe390bc798d600a693289ce85b8))
+
+
+### Features
+
+* add CpqClient with http core, error hierarchy, and nine resource classes ([3bbb3c4](https://github.com/wyre-technology/node-connectwise-cpq/commit/3bbb3c4bd2bf5b16b5334f1555707a61b8bedbbf))
+* scaffold @wyre-technology/node-connectwise-cpq (tsup, TS6, vitest, semantic-release) ([b510392](https://github.com/wyre-technology/node-connectwise-cpq/commit/b5103920441369728ebc78bfcc807f87d8c6cc2f))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
