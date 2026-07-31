@@ -44,17 +44,24 @@ export function unwrap<T>(payload: unknown): T[] {
   return [];
 }
 
-export interface ConditionClause {
-  field: string;
-  /** Defaults to '='. */
-  op?: '=' | '!=' | '<' | '<=' | '>' | '>=' | 'like' | 'contains' | 'in';
-  value: string | number | boolean | Date;
-}
+export type ConditionClause =
+  | {
+      field: string;
+      /** Defaults to '='. */
+      op?: '=' | '!=' | '<' | '<=' | '>' | '>=' | 'like' | 'contains';
+      value: string | number | boolean | Date;
+    }
+  | {
+      field: string;
+      op: 'in';
+      /** Rendered as a parenthesized list: `field in ("Open","Won")`. */
+      value: ReadonlyArray<string | number>;
+    };
 
 /** Matches ISO dates with or without a time component (time is stripped — the API rejects it). */
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}(?:[T ].*)?$/;
 
-function formatConditionValue(value: ConditionClause['value']): string {
+function formatConditionValue(value: string | number | boolean | Date): string {
   if (value instanceof Date) return `[${value.toISOString().slice(0, 10)}]`;
   if (typeof value === 'boolean') return value ? 'True' : 'False';
   if (typeof value === 'number') return String(value);
@@ -64,10 +71,17 @@ function formatConditionValue(value: ConditionClause['value']): string {
 
 /**
  * Build a Manage-style condition string: strings quoted, booleans capitalized
- * (True/False), dates bracketed date-only (`createDate >= [2026-07-01]`).
+ * (True/False), dates bracketed date-only (`createDate >= [2026-07-01]`), and
+ * `in` lists parenthesized (`quoteStatus in ("Open","Won")`).
  */
 export function buildConditions(clauses: ConditionClause[]): string {
   return clauses
-    .map(({ field, op = '=', value }) => `${field} ${op} ${formatConditionValue(value)}`)
+    .map((clause) => {
+      const value =
+        clause.op === 'in'
+          ? `(${clause.value.map(formatConditionValue).join(',')})`
+          : formatConditionValue(clause.value);
+      return `${clause.field} ${clause.op ?? '='} ${value}`;
+    })
     .join(' and ');
 }

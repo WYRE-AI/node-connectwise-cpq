@@ -22,7 +22,7 @@ Releases are cut automatically by semantic-release from conventional commits.
 - JSON Patch (RFC 6902) support: `JsonPatchOp` type and `fieldsToReplaceOps()`.
 - Bare-array pagination via `paginate()` with short-page termination, plus
   `buildConditions()` (quoted strings, `True`/`False` booleans, bracketed
-  date-only dates) and defensive `unwrap()`.
+  date-only dates, parenthesized `in` lists) and defensive `unwrap()`.
 - Constructor-time credential validation (CPQ answers a missing Authorization
   header with 500, not 401).
 - Fully typed sparse view models with all-optional properties, including

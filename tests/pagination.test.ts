@@ -86,6 +86,15 @@ describe('buildConditions', () => {
     ).toBe('modifyDate < [2026-07-15]');
   });
 
+  it('renders in-lists parenthesized with per-element quoting', () => {
+    expect(
+      buildConditions([{ field: 'quoteStatus', op: 'in', value: ['Open', 'Won'] }])
+    ).toBe('quoteStatus in ("Open","Won")');
+    expect(buildConditions([{ field: 'idQuote', op: 'in', value: [1, 2, 3] }])).toBe(
+      'idQuote in (1,2,3)'
+    );
+  });
+
   it('leaves numbers bare and escapes quotes in strings', () => {
     expect(
       buildConditions([
