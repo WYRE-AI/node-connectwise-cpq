@@ -12,20 +12,20 @@ Node.js client library for the [ConnectWise CPQ (Sell)](https://developer.connec
 ## Install
 
 ```bash
-npm install @wyre-technology/node-connectwise-cpq
+npm install @wyre-ai/node-connectwise-cpq
 ```
 
-The package is published to GitHub Packages under the `@wyre-technology` scope. Configure your `.npmrc`:
+The package is published to GitHub Packages under the `@wyre-ai` scope. Configure your `.npmrc`:
 
 ```
-@wyre-technology:registry=https://npm.pkg.github.com
+@wyre-ai:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
 ```
 
 ## Usage
 
 ```ts
-import { CpqClient, buildConditions } from '@wyre-technology/node-connectwise-cpq';
+import { CpqClient, buildConditions } from '@wyre-ai/node-connectwise-cpq';
 
 const cpq = new CpqClient({
   accessKey: process.env.CPQ_ACCESS_KEY!,   // from the Sell URL: ...home?accesskey=<this>
@@ -53,7 +53,7 @@ await cpq.quotes.updateFields(quote.id!, { name: 'Renewal — FY27' });
 const draft = await cpq.quotes.copyFromTemplate('template-guid');
 
 // Paginate everything (bare-array responses; stops on a short page).
-import { paginate } from '@wyre-technology/node-connectwise-cpq';
+import { paginate } from '@wyre-ai/node-connectwise-cpq';
 for await (const page of paginate((page, pageSize) => cpq.quoteItems.list({ page, pageSize }))) {
   console.log(page.length);
 }
