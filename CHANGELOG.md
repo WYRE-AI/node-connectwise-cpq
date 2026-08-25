@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/WYRE-AI/node-connectwise-cpq/compare/v1.0.0...v1.0.1) (2026-08-25)
+
+
+### Bug Fixes
+
+* migrate to WYRE-AI org (npm scope, ghcr namespace, registry) ([#1](https://github.com/WYRE-AI/node-connectwise-cpq/issues/1)) ([ab62585](https://github.com/WYRE-AI/node-connectwise-cpq/commit/ab625853dcbf3bc60a278b7739fc59f5b8e1e68e))
+
 # 1.0.0 (2026-07-31)
 
 

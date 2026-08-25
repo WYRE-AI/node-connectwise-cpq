@@ -1,6 +1,6 @@
 {
   "name": "@wyre-ai/node-connectwise-cpq",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node.js client library for the ConnectWise CPQ (Sell) API",
   "type": "module",
   "main": "./dist/index.cjs",
