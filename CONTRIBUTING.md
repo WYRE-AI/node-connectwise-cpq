@@ -41,4 +41,4 @@ messages must follow [Conventional Commits](https://www.conventionalcommits.org/
 ## Releasing
 
 Merging to `main` triggers `.github/workflows/release.yml`: tests on Node 20/22, then
-semantic-release publishes `@wyre-technology/node-connectwise-cpq` to GitHub Packages.
+semantic-release publishes `@wyre-ai/node-connectwise-cpq` to GitHub Packages.

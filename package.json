@@ -1,5 +1,5 @@
 {
-  "name": "@wyre-technology/node-connectwise-cpq",
+  "name": "@wyre-ai/node-connectwise-cpq",
   "version": "1.0.0",
   "description": "Node.js client library for the ConnectWise CPQ (Sell) API",
   "type": "module",
@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wyre-technology/node-connectwise-cpq.git"
+    "url": "git+https://github.com/WYRE-AI/node-connectwise-cpq.git"
   },
   "keywords": [
     "connectwise",
